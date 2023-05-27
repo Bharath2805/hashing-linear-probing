@@ -24,7 +24,7 @@ class Dictionary:
                 self.data[newHashValue] = value
             else:
                 self.data[newHashValue] = value 
-        def __setitem__(self,key,value):
+    def __setitem__(self,key,value):
             self.put(key,value)
 
 
