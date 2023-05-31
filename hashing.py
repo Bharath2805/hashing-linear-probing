@@ -28,7 +28,7 @@ class Dictionary:
             self.put(key,value)
 
 
-    def put(self,key):
+    def get(self,key):
         startPosition = self.hashingFunction(key)
         currentPosition = startPosition
         while self.slots[currentPosition] != None:
