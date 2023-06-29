@@ -6,7 +6,7 @@ class Dictionary:
     def hashingFunction(self,key):
         return abs(hash(key))%self.size
     def rehash(self,oldHash):
-        return (oldHash+1)%5
+        return (oldHash+1)%self.size
     def put(self,key,value):
         hashValue = self.hashingFunction(key)
         if self.slots[hashValue] == None:
@@ -17,12 +17,12 @@ class Dictionary:
                 self.data = value
             else:
                 newHashValue = self.rehash(hashValue)
-        while self.slots[newHashValue] != None and self.slots[newHashValue] != key :
-            newHashValue = self.rehash(newHashValue)
-            if self.slots[newHashValue] == None:
+             while self.slots[newHashValue] != None and self.slots[newHashValue] != key :
+                newHashValue = self.rehash(newHashValue)
+                if self.slots[newHashValue] == None:
                 self.slots[newHashValue] = key
                 self.data[newHashValue] = value
-            else:
+                else:
                 self.data[newHashValue] = value 
     def __setitem__(self,key,value):
             self.put(key,value)
